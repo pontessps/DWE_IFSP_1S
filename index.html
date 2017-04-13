@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Mapa mapbox</title>
+
+	<!-- RECURSOS DO MAPBOX -->
+	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+	<link  href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+	
+	<link  href='estilo.css' rel='stylesheet' />
+
+</head>
+
+
+<body>
+	<!--
+		a) mapa com elementos geo-referenciados - ok
+		d) exibir janela de informações sobre local clicado no mapa - ok
+
+		b) cabeçalho				- ok
+		c) página fale-conosco		- em andamento
+		e) rodapé com licenciamento do site		- ok
+		f) página com informações do projeto e autores	- falta estilo
+		
+		g) estética adequada - não feita
+		
+		h) conteúdo armazenado no github com licença livre
+		i) o site deve estar armazenado em provedor de conteúdo gratuito
+	-->
+
+	<div id=pagina>
+		<header>
+			Trabalho da disciplina DWE - 1o. semestre de 2017 <br>
+		</header>
+
+		<br>
+
+		<div id="map"></div>
+
+		<br>
+
+		<div id=referencia>
+			Clique <a href="paginacontato.html">> aqui <</a> para entrar em contato. <br>
+			Para informações sobre o projeto e os autores, clique <a href="sobreautores.html">> aqui <</a>.
+		</div>
+
+		<footer>
+			Licença CC. Alguns direitos reservados. <br>
+		</footer>
+	</div>
+
+
+
+	<script type="text/javascript">
+
+			// CÓDIGO DO MAPBOX
+			L.mapbox.accessToken = 'pk.eyJ1Ijoia2VsdmlubGluZHF1aXN0IiwiYSI6ImNqMTZwaGd2ODAyejcycXFxMG1mNHJ4MHgifQ.VmLL4Nr7akBVHQmlO1yDsg';
+
+			var map = L.mapbox.map('map', 'mapbox.streets')
+				.setView([-23.19, -46.88], 12);
+			
+			var myLayer = L.mapbox.featureLayer().addTo(map);
+
+			var geojson = [
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#35c0c8",
+						"marker-size": "medium",
+						"marker-symbol": "park",
+						"title": "Parque da cidade",
+						"description": "Rod. João Cereser, 7981-8633 - Cidade Santos Dumont, Jundiaí - SP, 13214-470, Brazil <br> Latitude: -23.154826 | Longitude: -46.887307"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.887307,
+						-23.154826
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#35c0c8",
+						"marker-size": "medium",
+						"marker-symbol": "dog-park",
+						"title": "Pracinha dos dogs",
+						"description": "R. Prof. Sebastião Augusto de Miranda, 210 - Jardim Primavera, Jundiaí - SP, 13209-720, Brazil <br> Latitude: -23.184637 | Longitude: -46.902877"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.902877,
+						-23.184637
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#35c0c8",
+						"marker-size": "medium",
+						"marker-symbol": "park",
+						"title": "Praça Miguel Lopes",
+						"description": "Av. União dos Ferroviários, 2222 - Ponte de Campinas, Jundiaí - SP, 13201-160, Brazil <br> Latitude: -23.178751 | Longitude: -46.885987"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.885987,
+						-23.178751
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#35c0c8",
+						"marker-size": "medium",
+						"marker-symbol": "park",
+						"title": "Praça Leonardo Timpone",
+						"description": "Av. Giustiniano Borin, 33 - Caxambu, Jundiaí - SP, 13218-540, Brazil <br> Latitude: -23.177693 | Longitude: -46.865049"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.865049,
+						-23.177693
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#35c0c8",
+						"marker-size": "medium",
+						"marker-symbol": "park",
+						"title": "Praça Fioravante Pierobon",
+						"description": "R. Dr. Antenor Soares Gandra, 593 - Jardim Pacaembu, Jundiaí - SP, 13218-335, Brazil <br> Latitude: -23.184822 | Longitude: -46.866261"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.866261,
+						-23.184822
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Antônio de Lima",
+						"description": "R. Benedito Souza Costa, 11 - Agapeama, Jundiaí - SP, 13203-321, Brazil <br> Latitude: -23.212159 | Longitude: -46.859182"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.859182,
+						-23.212159
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Jardim Ângela",
+						"description": "R. Primo Filipini, 160 - Vila Aparecida, Jundiaí - SP, 13218-500, Brazil <br> Latitude: -23.179502 | Longitude: -46.865938"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.865938,
+						-23.179502
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Aramis Polli",
+						"description": "R. Dr. Benedito de Godói Ferraz, 508 - Vila Hortolandia, Jundiaí - SP, 13214-200, Brazil <br> Latitude: -23.171989 | Longitude: -46.914651"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.914651,
+						-23.171989
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Benedito De Lima",
+						"description": "Av. Osmundo dos Santos Pellegrini, 76 - Jardim Trevo, Jundiaí - SP, 13211-377, Brazil <br> Latitude: -23.18273 | Longitude: -46.918362"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.918362,
+						-23.18273
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Francisco Dal Santo",
+						"description": "Rua Cica, 1345 - Vila Rami, Jundiaí - SP, 13206-475, Brazil <br> Latitude: -23.212823 | Longitude: -46.876609"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.876609,
+						-23.212823
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "Complexo Esportivo Francisco Álvaro Siqueira Neto",
+						"description": "R. Londrina, 865 - Jardim Martins, Jundiaí - SP, 13210-057, Brazil <br>Latitude: -23.230081 | Longitude: -46.883316"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.883316,
+						-23.230081
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE José Pedro Raymundo",
+						"description": "R. Tiradentes, 50 - Vila Rio Branco, Jundiaí - SP, 13215-370, Brazil <br> Latitude: -23.174057 | Longitude: -46.886317"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.886317,
+						-23.174057
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Vanderlei Sperandio",
+						"description": "Av. Vitório Baradel, 591 - Jardim Marambaia II, Jundiaí - SP, Brazil <br> Latitude: -23.244821 | Longitude: -46.857742"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.857742,
+						-23.244821
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Doutor Nicolino de Lucca (Ginásio Bolão)",
+						"description": "R. Rodrigo Soares de Oliveira - Anhangabaú, Jundiaí - SP, 13208-120, Brazil <br> Latitude: -23.191981 | Longitude: -46.89517"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.89517,
+						-23.191981
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Vila Comercial",
+						"description": "R. Pindamonhangaba, 61 - Vila Maringa, Jundiaí - SP, 13210-630, Brazil <br> Latitude: -23.221968 | Longitude: -46.881312"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.881312,
+						-23.221968
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Antonio Marcussi (Rugby Jundiaí)",
+						"description": "R. Setembrina de Queirós Teles, 201 - Vila Cristo Redentor, Jundiaí - SP, 13203-233, Brazil <br> Latitude: -23.205701 | Longitude: -46.851874"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.851874,
+						-23.205701
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Nilo Avelino Macedo",
+						"description": "Rua Luiz Camargo Duarte Junior, 163 - Jardim Esplanada, Jundiaí - SP, 13202-140, Brazil <br> Latitude: -23.211265 | Longitude: -46.871191"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.871191,
+						-23.211265
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Dr. Romão de Souza",
+						"description": "R. Luís Benachio - Jardim Colonia, Jundiaí - SP, 13219-401, Brazil <br> Latitude: -23.184177 | Longitude: -46.854072"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.854072,
+						-23.184177
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "tennis",
+						"title": "V Tennis Team Jundiaí",
+						"description": "Rod. Ver. Geraldo Dias - Parque Centenário, Jundiaí - SP, 13214-788, Brazil <br> Latitude: -23.143806 | Longitude: -46.913986"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.913986,
+						-23.143806
+						]
+					}
+				},
+				{
+					"type": "Feature",
+					"properties": {
+						"marker-color": "#61d528",
+						"marker-size": "medium",
+						"marker-symbol": "cricket",
+						"title": "CECE Mário Milani",
+						"description": "R. José Joaquim dos Santos, 400 - Ivoturucaia, Várzea Paulista - SP, 13218-790, Brazil <br> Latitude: -23.190258 | Longitude: -46.808622"
+					},
+					"geometry": {
+						"type": "Point",
+						"coordinates": [
+						-46.808622,
+						-23.190258
+						]
+					}
+				}
+			];
+
+			myLayer.setGeoJSON(geojson);
+
+</script>
+
+</body>
+</html>
